@@ -13,10 +13,7 @@ export interface EventTS {
   getAuthKeyCallback: {
     authKey: string;
   };
-  extract: {
-    source_lang: string;
-    target_lang: string;
-  };
+  extract: {};
   extractCallback: {
     result: Extract[];
   };

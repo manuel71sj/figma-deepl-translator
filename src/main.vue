@@ -348,10 +348,7 @@ const extractedLayers: Extract[] = reactive([]);
 const extract = () => {
   saveAuthKey();
 
-  dispatchTS("extract", {
-    sourceLang: sourceLang.value,
-    targetLang: targetLang.value,
-  });
+  dispatchTS("extract", {});
 
   listenTS("extractCallback", async (res: Extract[]) => {
     console.log("extractCallback result: ", res);
