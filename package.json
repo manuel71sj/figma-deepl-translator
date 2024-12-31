@@ -1,0 +1,35 @@
+{
+  "name": "deepl_translator.legaltech.figma.plugin",
+  "private": true,
+  "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/manuel71sj/figma-deepl-translator.git"
+  },
+  "homepage": "https://github.com/manuel71sj/figma-deepl-translator",
+  "type": "module",
+  "scripts": {
+    "dev": "vite build --watch --mode dev",
+    "devcode": "vite build --watch --mode dev --config vite.config.code.ts",
+    "build": "vite build",
+    "buildcode": "vite build --config vite.config.code.ts",
+    "preview": "vite preview",
+    "hmr": "vite",
+    "zip": "cross-env MODE=zip vite build"
+  },
+  "dependencies": {
+    "vue": "^3.4.27"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.4",
+    "@figma/plugin-typings": "^1.94.0",
+    "@types/node": "^16.7.1",
+    "sass": "^1.75.0",
+    "typescript": "^5.0.2",
+    "cross-env": "^7.0.3",
+    "vite": "^5.2.12",
+    "vite-figma-plugin": "^0.0.24",
+    "vite-plugin-singlefile": "^0.13.5"
+  },
+  "packageManager": "pnpm@9.14.4+sha512.c8180b3fbe4e4bca02c94234717896b5529740a6cbadf19fa78254270403ea2f27d4e1d46a08a0f56c89b63dc8ebfd3ee53326da720273794e6200fcf0d184ab"
+}
