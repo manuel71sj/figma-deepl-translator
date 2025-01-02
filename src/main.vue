@@ -356,6 +356,10 @@ const extract = () => {
     extractedLayers.splice(0, extractedLayers.length);
     extractedLayers.push(...res.result);
 
+    if (authKey.value === "") {
+      return;
+    }
+
     for (const el of extractedLayers) {
       const aaa = await fetchTranslation(el.text);
       console.log("aaa", aaa);
@@ -412,8 +416,10 @@ const fetchTranslation = async (text: string): Promise<string | undefined> => {
             class="vector-icon"
             alt=""
             src="./assets/ico_link.svg" />
-
-          <div class="div">여기에서 발급가능</div>
+            <a class="div"
+          href="https://www.deepl.com/your-account/keys"
+          target="_blank">
+          여기에서 발급가능</a>
         </div>
       </div>
       <div class="input-api">
@@ -434,6 +440,7 @@ const fetchTranslation = async (text: string): Promise<string | undefined> => {
             <div class="div1">저장</div>
           </div>-->
       </div>
+      <span style="margin-left: 5px;">API 키가 공란인 경우 추출만 가능합니다.</span>
     </div>
     <div class="translation-area">
       <div class="conversion">
