@@ -7,6 +7,8 @@
 
 ## 설치방법
 
+- 정식 등록된 플러그인이 아니라 데스크톱 앱에서만 사용가능합니다.
+
 1. [여기](https://github.com/manuel71sj/figma-deepl-translator/releases)에서 최신 버전의 zip 파일을 다운로드
 2. 다운로드 된 zip파일을 적절한 곳에 압축해제
 3. 피그마 디자인 모드에서 우클릭 후 `Plugins > Development > Import plugin from manifest.json`선택
