@@ -1,5 +1,7 @@
 ## 특징
 
+<img src="./screenshot/screenshot_01.png"/>
+
 - 선택된 영역에서 TEXT 자동 추출
 - 추출된 문자열에 대한 자동 번역
 
