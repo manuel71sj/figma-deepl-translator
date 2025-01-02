@@ -3,7 +3,7 @@ import type { Extract } from "../src/globals";
 
 figma.showUI(__html__, {
   themeColors: true,
-  width: 550,
+  width: 732,
   height: 600,
 });
 

@@ -312,7 +312,8 @@ const helloWorld = () => {
 let lightOrDarkMode = ref(getColorTheme());
 onMounted(() => {
   subscribeColorTheme((mode) => {
-    lightOrDarkMode.value = mode;
+    // lightOrDarkMode.value = mode;
+    lightOrDarkMode.value = "light";
   });
 
   getAuthKey();
@@ -330,7 +331,7 @@ const saveAuthKey = () => {
 };
 
 const getAuthKey = () => {
-  dispatchTS("getAuthKey");
+  dispatchTS("getAuthKey", {});
 
   listenTS("getAuthKeyCallback", (res) => {
     console.log("getAuthKeyCallback result: ", res);
@@ -402,83 +403,113 @@ const fetchTranslation = async (text: string): Promise<string | undefined> => {
 </script>
 
 <template>
-  <div class="container">
-    <div class="container">
-      <!-- deepl api authkey를 입력 받기 위한 input -->
-      <div class="row">
+  <div class="body">
+    <div class="api">
+      <div class="title">
+        <div class="deepl-api-auth">DeepL API Auth Key</div>
+        <div class="link-button">
+          <img
+            class="vector-icon"
+            alt=""
+            src="./assets/ico_link.svg" />
+
+          <div class="div">여기에서 발급가능</div>
+        </div>
+      </div>
+      <div class="input-api">
         <input
+          class="input"
           v-model="authKey"
           style="flex: 1 1 0%"
-          placeholder="Deepl API Auth Key"
-          @input="authKeyChange" />
+          placeholder="Deepl API Auth Key" />
+        <!-- <div class="input">
+            <div class="api-key">API Key를 입력해주세요.</div>
+          </div> -->
         <button
-          class="submit"
+          class="button"
           @click="saveAuthKey">
           저장
         </button>
+        <!-- <div class="button">
+            <div class="div1">저장</div>
+          </div>-->
       </div>
-      <span>
-        <a
-          href="https://www.deepl.com/your-account/keys"
-          target="_blank">
-          여기에서 발급가능
-        </a>
-      </span>
     </div>
-    <div class="container">
-      <div class="row">
-        <div class="row">
-          <label style="width: 40px">원본</label>
-          <select
-            v-model="sourceLang"
-            style="width: 100%">
-            <option
-              v-for="lang in sourceLanguage"
-              :key="lang.language"
-              :value="lang.language">
-              {{ lang.name }}
-            </option>
-          </select>
-        </div>
-        <div class="row">
-          <label style="width: 40px">타겟</label>
-          <select
-            v-model="targetLang"
-            style="width: 100%">
-            <option
-              v-for="lang in targetLanguage"
-              :key="lang.language"
-              :value="lang.language">
-              {{ lang.name }}
-            </option>
-          </select>
-        </div>
+    <div class="translation-area">
+      <div class="conversion">
+        <select
+          v-model="sourceLang"
+          class="dropdown-original">
+          <option
+            v-for="lang in sourceLanguage"
+            :key="lang.language"
+            :value="lang.language">
+            {{ lang.name }}
+          </option>
+        </select>
+        <img
+          class="ico-translation-icon"
+          alt=""
+          src="./assets/ico_translation.svg" />
+        <select
+          v-model="targetLang"
+          class="dropdown-original">
+          <option
+            v-for="lang in targetLanguage"
+            :key="lang.language"
+            :value="lang.language">
+            {{ lang.name }}
+          </option>
+        </select>
         <button
-          class="submit"
-          style="width: 250px"
+          class="button1"
           @click="extract">
           추출 및 번역
         </button>
+        <!-- <div class="button1">
+            <div class="deepl-api-auth">추출 및 번역</div>
+          </div> -->
       </div>
-    </div>
-    <div class="container">
-      <table width="100%">
-        <thead>
-          <tr>
-            <th width="*">프레임</th>
-            <th>레이어명</th>
-            <th>텍스트</th>
-            <th>번역</th>
-          </tr>
+      <table class="table-area">
+        <thead class="thead">
+          <th class="th">
+            <td class="deepl-api-auth">
+              프레임
+            </td>
+          </th>
+          <th class="th">
+            <td class="deepl-api-auth">
+              레이어명
+            </td>
+          </th>
+          <th class="th">
+            <td class="deepl-api-auth">
+              텍스트
+            </td>
+          </th>
+          <th class="th">
+            <td class="deepl-api-auth">
+              번역
+            </td>
+          </th>
         </thead>
-        <tbody>
+        <tbody class="tbody">
           <tr
             v-for="layer in extractedLayers"
-            :key="layer.id">
-            <td>{{ layer.frame }}</td>
-            <td>{{ layer.name }}</td>
-            <td>{{ layer.text }}</td>
-            <td>{{ layer.translate }}</td>
+            :key="layer.id"
+            class="tr">
+            <td class="td">
+              <div class="text">{{ layer.frame }}</div>
+            </td>
+            <td class="td">
+              <div class="text">{{ layer.name }}</div>
+            </td>
+            <td class="td">
+              <div class="text">{{ layer.text }}</div>
+            </td>
+            <td class="td">
+              <div class="text">{{ layer.translate }}</div>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -486,13 +517,4 @@ const fetchTranslation = async (text: string): Promise<string | undefined> => {
   </div>
 </template>
 
-<style lang="scss">
-@import "./variables.scss";
-
-.submit {
-  background-color: $primary;
-  width: fit-content;
-
-  // color: white;
-}
-</style>
+<style lang="scss"></style>
