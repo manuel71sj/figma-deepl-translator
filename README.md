@@ -25,3 +25,7 @@
 ## 의견제시
 
 버그리포트 및 수정에 대한 제안은 [github issue](https://github.com/manuel71sj/figma-deepl-translator/issues)를 이용해 주세요
+
+## 도움주신분
+
+디자인 팀장님깨서 디자인을 도와주셨습니다.
